@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     # 3rd-party apps
     'rest_framework',
     'rest_framework.authtoken',
+    'drf_yasg',         # swagger for DRF
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'dj_rest_auth',
+    'dj_rest_auth',     # fork of rest_auth
     'dj_rest_auth.registration',
+
 
     # Local
     'posts.apps.PostsConfig',
@@ -64,7 +66,17 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+}
+
+SWAGGER_SETTINGS = {
+    'basic': {
+        'type': 'basic'
+    },
+    # TODO: fix login and logout pages with using drf-yasg
+    'LOGIN_URL': 'rest_framework:login',
+    'LOGOUT_URL': 'rest_framework:logout',
 }
 
 MIDDLEWARE = [

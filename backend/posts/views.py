@@ -18,7 +18,7 @@ class PostViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
-    
+
 
 # Views with generics
 # class PostList(generics.ListCreateAPIView):
@@ -31,15 +31,13 @@ class UserViewSet(viewsets.ModelViewSet):
 #     permission_classes = (IsAuthorOrReadOnly,)
 #     queryset = Post.objects.all()
 #     serializer_class = PostSerializer
-    
+
 
 # class UserList(generics.ListCreateAPIView):
 #     queryset = get_user_model().objects.all()
 #     serializer_class = UserSerializer
-    
-    
+
+
 # class UserDetail(generics.RetrieveUpdateDestroyAPIView):
 #     queryset = get_user_model().objects.all()
 #     serializer_class = UserSerializer
-
-
